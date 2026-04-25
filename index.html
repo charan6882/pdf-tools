@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast PDF Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>⚡ Fast PDF Tools</h1>
+    <p>Free, Fast & Simple PDF Tools</p>
+</header>
+
+<div class="container">
+    <div class="card" onclick="showImageTool()">📷 Image → PDF</div>
+    <div class="card" onclick="showMergeTool()">📄 Merge PDF</div>
+    <div class="card" onclick="showCompressTool()">🗜 Compress PDF</div>
+</div>
+
+<!-- IMAGE TOOL -->
+<div id="imageSection" class="hidden">
+    <h2>Image to PDF</h2>
+
+    <div id="dropArea">
+        <p>Drag & Drop Images Here</p>
+        <input type="file" id="imageInput" multiple accept="image/*">
+    </div>
+
+    <div id="preview"></div>
+    <button onclick="convertToPDF()">Convert to PDF</button>
+</div>
+
+<!-- MERGE TOOL -->
+<div id="mergeSection" class="hidden">
+    <h2>Merge PDF</h2>
+    <input type="file" id="pdfInput" multiple accept="application/pdf">
+    <button onclick="mergePDF()">Merge & Download</button>
+</div>
+
+<!-- COMPRESS TOOL -->
+<div id="compressSection" class="hidden">
+    <h2>Compress PDF</h2>
+    <input type="file" id="compressInput" accept="application/pdf">
+    <button onclick="compressPDF()">Compress & Download</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
