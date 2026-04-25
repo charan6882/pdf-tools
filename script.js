@@ -1,3 +1,6 @@
+const BACKEND_URL = "https://pdf-tools-backend-1bd0.onrender.com";
+
+/* TOGGLE UI */
 function showImageTool() {
     document.getElementById("imageSection").classList.remove("hidden");
     document.getElementById("mergeSection").classList.add("hidden");
@@ -23,9 +26,7 @@ const preview = document.getElementById("preview");
 
 let filesList = [];
 
-input.addEventListener("change", (e) => {
-    handleFiles(e.target.files);
-});
+input.addEventListener("change", (e) => handleFiles(e.target.files));
 
 dropArea.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -45,7 +46,6 @@ dropArea.addEventListener("drop", (e) => {
 function handleFiles(files) {
     for (let file of files) {
         filesList.push(file);
-
         const img = document.createElement("img");
         img.src = URL.createObjectURL(file);
         preview.appendChild(img);
@@ -63,10 +63,8 @@ async function convertToPDF() {
 
     for (let i = 0; i < filesList.length; i++) {
         const imgData = await readFile(filesList[i]);
-
         if (i > 0) pdf.addPage();
-
-        pdf.addImage(imgData, 'JPEG', 10, 10, 180, 160);
+        pdf.addImage(imgData, "JPEG", 10, 10, 180, 160);
     }
 
     pdf.save("converted.pdf");
@@ -82,55 +80,73 @@ function readFile(file) {
 
 /* MERGE TOOL */
 async function mergePDF() {
-    const input = document.getElementById("pdfInput");
-    const files = input.files;
+    try {
+        const files = document.getElementById("pdfInput").files;
 
-    if (files.length < 2) {
-        alert("Upload at least 2 PDFs");
-        return;
+        if (files.length < 2) {
+            alert("Upload at least 2 PDFs");
+            return;
+        }
+
+        alert("Processing... (first time may take 20 seconds)");
+
+        const formData = new FormData();
+        for (let file of files) {
+            formData.append("pdfs", file);
+        }
+
+        const response = await fetch(`${BACKEND_URL}/merge`, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) throw new Error("Server error");
+
+        const blob = await response.blob();
+        downloadFile(blob, "merged.pdf");
+
+    } catch (err) {
+        console.error(err);
+        alert("Merge failed. Try again.");
     }
-
-    const formData = new FormData();
-    for (let file of files) {
-        formData.append("pdfs", file);
-    }
-
-    const response = await fetch("http://localhost:5000/merge", {
-        method: "POST",
-        body: formData
-    });
-
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "merged.pdf";
-    a.click();
 }
 
 /* COMPRESS TOOL */
 async function compressPDF() {
-    const file = document.getElementById("compressInput").files[0];
+    try {
+        const file = document.getElementById("compressInput").files[0];
 
-    if (!file) {
-        alert("Upload a PDF first!");
-        return;
+        if (!file) {
+            alert("Upload a PDF first!");
+            return;
+        }
+
+        alert("Processing... (first time may take 20 seconds)");
+
+        const formData = new FormData();
+        formData.append("pdf", file);
+
+        const response = await fetch(`${BACKEND_URL}/compress`, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) throw new Error("Server error");
+
+        const blob = await response.blob();
+        downloadFile(blob, "compressed.pdf");
+
+    } catch (err) {
+        console.error(err);
+        alert("Compression failed. Try again.");
     }
+}
 
-    const formData = new FormData();
-    formData.append("pdf", file);
-
-    const response = await fetch("http://localhost:5000/compress", {
-        method: "POST",
-        body: formData
-    });
-
-    const blob = await response.blob();
+/* DOWNLOAD HELPER */
+function downloadFile(blob, filename) {
     const url = window.URL.createObjectURL(blob);
-
     const a = document.createElement("a");
     a.href = url;
-    a.download = "compressed.pdf";
+    a.download = filename;
     a.click();
 }
