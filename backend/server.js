@@ -5,61 +5,76 @@ const { PDFDocument } = require("pdf-lib");
 
 const app = express();
 
-/* 🔥 FIX: ENABLE CORS PROPERLY */
+/* ✅ CORS FIX */
 app.use(cors({
-    origin: "*",
+    origin: "*"
 }));
 
+/* ✅ MULTER MEMORY STORAGE */
 const upload = multer({ storage: multer.memoryStorage() });
 
 /* TEST ROUTE */
 app.get("/", (req, res) => {
-    res.send("Backend is running");
+    res.send("Backend is running ✅");
 });
 
-/* MERGE PDF */
+/* ================= MERGE PDF ================= */
 app.post("/merge", upload.array("pdfs"), async (req, res) => {
     try {
+        if (!req.files || req.files.length < 2) {
+            return res.status(400).send("Upload at least 2 PDFs");
+        }
+
         const mergedPdf = await PDFDocument.create();
 
         for (let file of req.files) {
-            const pdf = await PDFDocument.load(file.buffer);
+            const pdf = await PDFDocument.load(file.buffer, { ignoreEncryption: true });
             const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
             pages.forEach(page => mergedPdf.addPage(page));
         }
 
         const pdfBytes = await mergedPdf.save();
 
-        res.setHeader("Content-Type", "application/pdf");
-        res.setHeader("Content-Disposition", "attachment; filename=merged.pdf");
-        res.send(pdfBytes);
+        res.set({
+            "Content-Type": "application/pdf",
+            "Content-Disposition": "attachment; filename=merged.pdf"
+        });
+
+        res.send(Buffer.from(pdfBytes));
 
     } catch (err) {
-        console.error(err);
+        console.error("MERGE ERROR:", err);
         res.status(500).send("Error merging PDFs");
     }
 });
 
-/* COMPRESS PDF */
+/* ================= COMPRESS PDF ================= */
 app.post("/compress", upload.single("pdf"), async (req, res) => {
     try {
-        const pdfDoc = await PDFDocument.load(req.file.buffer);
-        const pages = pdfDoc.getPages();
-
-        for (let page of pages) {
-            page.scale(0.8, 0.8);
+        if (!req.file) {
+            return res.status(400).send("No file uploaded");
         }
 
-        const pdfBytes = await pdfDoc.save();
+        const pdfDoc = await PDFDocument.load(req.file.buffer);
 
-        res.setHeader("Content-Type", "application/pdf");
-        res.setHeader("Content-Disposition", "attachment; filename=compressed.pdf");
-        res.send(pdfBytes);
+        // Safe re-save (no corruption)
+        const pdfBytes = await pdfDoc.save({
+            useObjectStreams: false
+        });
+
+        res.set({
+            "Content-Type": "application/pdf",
+            "Content-Disposition": "attachment; filename=compressed.pdf"
+        });
+
+        res.send(Buffer.from(pdfBytes));
 
     } catch (err) {
-        console.error(err);
+        console.error("COMPRESS ERROR:", err);
         res.status(500).send("Compression failed");
     }
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+/* ================= START SERVER ================= */
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
