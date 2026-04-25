@@ -3,53 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fast PDF Tools</title>
+
+    <title>Fast PDF Tools - Merge, Compress & Convert PDF Online</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Free online PDF tools to merge, compress and convert PDFs. Fast, secure, no signup required.">
 
     <link rel="stylesheet" href="style.css">
 
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Google AdSense (ADD YOUR ID LATER) -->
+    <!--
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+    -->
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
     <h1>⚡ Fast PDF Tools</h1>
-    <p>Free, Fast & Simple PDF Tools</p>
+    <p>Free, Secure & Easy PDF Tools</p>
 </header>
 
+<!-- TOP AD -->
+<div class="ad-box">
+    <!-- Top AdSense -->
+</div>
+
+<!-- TOOL CARDS -->
 <div class="container">
     <div class="card" onclick="showImageTool()">📷 Image → PDF</div>
     <div class="card" onclick="showMergeTool()">📄 Merge PDF</div>
     <div class="card" onclick="showCompressTool()">🗜 Compress PDF</div>
 </div>
 
-<!-- IMAGE TOOL -->
-<div id="imageSection" class="hidden">
+<!-- MIDDLE AD -->
+<div class="ad-box">
+    <!-- Middle AdSense -->
+</div>
+
+<!-- ================= IMAGE TOOL ================= -->
+<div id="imageSection" class="tool-box hidden">
     <h2>Image to PDF</h2>
 
     <div id="dropArea">
         <p>Drag & Drop Images Here</p>
+        <span>or</span><br><br>
         <input type="file" id="imageInput" multiple accept="image/*">
     </div>
 
     <div id="preview"></div>
+
     <button onclick="convertToPDF()">Convert to PDF</button>
 </div>
 
-<!-- MERGE TOOL -->
-<div id="mergeSection" class="hidden">
-    <h2>Merge PDF</h2>
+<!-- ================= MERGE TOOL ================= -->
+<div id="mergeSection" class="tool-box hidden">
+    <h2>Merge PDF Files</h2>
+
+    <p>Select multiple PDF files to merge into one</p>
+
     <input type="file" id="pdfInput" multiple accept="application/pdf">
+
     <button onclick="mergePDF()">Merge & Download</button>
 </div>
 
-<!-- COMPRESS TOOL -->
-<div id="compressSection" class="hidden">
+<!-- ================= COMPRESS TOOL ================= -->
+<div id="compressSection" class="tool-box hidden">
     <h2>Compress PDF</h2>
+
+    <p>Reduce PDF file size quickly</p>
+
     <input type="file" id="compressInput" accept="application/pdf">
+
     <button onclick="compressPDF()">Compress & Download</button>
 </div>
 
+<!-- BOTTOM AD -->
+<div class="ad-box">
+    <!-- Bottom AdSense -->
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Fast PDF Tools</p>
+
+    <div>
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </div>
+</footer>
+
+<!-- SCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
