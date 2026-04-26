@@ -1,96 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFBolt - All in One PDF Tools</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>PDFBolt ⚡ - Futuristic PDF Tools</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-<header class="header">
-    <div class="logo-area">
-        <img src="logo.png">
-        <h2>PDFBolt ⚡</h2>
+<!-- NAVBAR -->
+<header class="nav">
+    <div class="logo">
+        <img src="logo-icon.png">
+        <span>PDFBolt</span>
     </div>
 
-    <nav>
+    <div class="menu">
         <a href="#">Home</a>
         <a href="#">Tools</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
-        <button class="bookmark">🔖 Bookmark</button>
-    </nav>
+    </div>
 </header>
 
-<section class="main">
-
-    <!-- LEFT -->
-    <div class="left">
-        <h1>All-in-One <span>PDF Tools</span></h1>
-        <p>Free, fast and easy-to-use tools to manage your PDF files.</p>
-
-        <div class="features">
-            <div>🔒 Secure</div>
-            <div>⚡ Fast</div>
-            <div>☁️ Free</div>
-        </div>
-
-        <button class="cta">⚡ Explore All Tools</button>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left">
+        <h1>Next-Gen <span>PDF Tools</span></h1>
+        <p>Fast, secure and futuristic document tools.</p>
+        <button class="cta">🚀 Start Now</button>
     </div>
 
-    <!-- RIGHT -->
-    <div class="right">
-
-        <div class="tool">
-            <div class="icon purple">📷</div>
-            <p>Image to PDF</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon blue">📄</div>
-            <p>Merge PDF</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon green">🗜</div>
-            <p>Compress PDF</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon orange">✂️</div>
-            <p>Split PDF</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon blue">📘</div>
-            <p>PDF → Word</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon green">📝</div>
-            <p>Word → PDF</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon yellow">🔄</div>
-            <p>Rotate PDF</p>
-        </div>
-
-        <div class="tool">
-            <div class="icon purple">🔒</div>
-            <p>Protect PDF</p>
-        </div>
-
+    <div class="hero-right">
+        <img src="logo-banner.png" class="hero-img">
     </div>
+</section>
+
+<!-- TOOL GRID -->
+<section class="tools">
+
+<div class="card" onclick="showImageTool()">
+<i data-lucide="image"></i>
+<p>Image to PDF</p>
+</div>
+
+<div class="card" onclick="showMergeTool()">
+<i data-lucide="files"></i>
+<p>Merge PDF</p>
+</div>
+
+<div class="card" onclick="showCompressTool()">
+<i data-lucide="minimize-2"></i>
+<p>Compress PDF</p>
+</div>
+
+<div class="card">
+<i data-lucide="scissors"></i>
+<p>Split PDF</p>
+</div>
+
+<div class="card">
+<i data-lucide="rotate-cw"></i>
+<p>Rotate PDF</p>
+</div>
+
+<div class="card">
+<i data-lucide="file-text"></i>
+<p>PDF → Word</p>
+</div>
+
+<div class="card">
+<i data-lucide="file-plus"></i>
+<p>Word → PDF</p>
+</div>
+
+<div class="card">
+<i data-lucide="lock"></i>
+<p>Protect PDF</p>
+</div>
 
 </section>
 
+<!-- ================= TOOLS ================= -->
+
+<!-- IMAGE -->
+<div id="imageSection" class="tool-box hidden">
+    <h2>Image to PDF</h2>
+    <input type="file" id="imageInput" multiple>
+    <button onclick="convertToPDF()">Convert</button>
+</div>
+
+<!-- MERGE -->
+<div id="mergeSection" class="tool-box hidden">
+    <h2>Merge PDF</h2>
+    <input type="file" id="pdfInput" multiple>
+    <button onclick="mergePDF()">Merge</button>
+</div>
+
+<!-- COMPRESS -->
+<div id="compressSection" class="tool-box hidden">
+    <h2>Compress PDF</h2>
+    <input type="file" id="compressInput">
+    <button onclick="compressPDF()">Compress</button>
+</div>
+
+<!-- LOADER -->
+<div id="loader" class="loader hidden"></div>
+
 <footer>
-    © 2026 PDFBolt
+© 2026 PDFBolt ⚡
 </footer>
+
+<script src="script.js"></script>
+
+<script>
+lucide.createIcons();
+</script>
 
 </body>
 </html>
