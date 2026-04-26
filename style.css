@@ -2,120 +2,122 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f7fb;
+    background: #f4f7fb;
 }
 
 /* HEADER */
 .header {
-    background: linear-gradient(135deg, #0f2027, #2c5364);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d1b2a;
     color: white;
-    padding: 20px;
+    padding: 15px 40px;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 .logo-area img {
-    width: 60px;
+    width: 40px;
 }
 
-/* NAVBAR */
-.navbar {
-    background: #0d1b2a;
-    padding: 12px;
-    text-align: center;
-}
-
-.navbar a {
+nav a {
     color: white;
-    margin: 0 15px;
+    margin: 0 10px;
     text-decoration: none;
 }
 
-/* HERO */
-.main-hero {
+.bookmark {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+/* MAIN */
+.main {
     display: flex;
     justify-content: space-between;
     padding: 60px;
-    gap: 40px;
-    flex-wrap: wrap;
 }
 
 /* LEFT */
-.hero-left {
-    max-width: 500px;
+.left {
+    max-width: 450px;
 }
 
-.hero-left h1 {
+.left h1 {
     font-size: 42px;
 }
 
-.hero-left span {
+.left span {
     color: #007bff;
 }
 
-.hero-left p {
+.left p {
     margin: 15px 0;
     color: #666;
 }
 
-/* FEATURES */
 .features {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin: 20px 0;
 }
 
-/* BUTTON */
-.hero-left button {
-    padding: 12px 25px;
+.cta {
     background: linear-gradient(135deg, #007bff, #00c6ff);
-    border: none;
     color: white;
+    padding: 12px 20px;
+    border: none;
     border-radius: 10px;
     cursor: pointer;
 }
 
 /* RIGHT GRID */
-.hero-right {
+.right {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* TOOL CARDS */
-.tool-card {
+/* TOOL CARD */
+.tool {
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 15px;
     text-align: center;
-    cursor: pointer;
-    font-weight: 500;
 
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
 
-.tool-card:hover {
-    transform: translateY(-6px);
+.tool:hover {
+    transform: translateY(-5px);
 }
 
-/* TOOL BOX */
-.tool-box {
-    margin: 30px auto;
-    padding: 30px;
-    max-width: 400px;
-    background: white;
+/* ICON */
+.icon {
+    font-size: 24px;
+    padding: 15px;
     border-radius: 12px;
-    text-align: center;
+    margin-bottom: 10px;
 }
+
+.purple { background: #e9d5ff; }
+.blue { background: #dbeafe; }
+.green { background: #dcfce7; }
+.orange { background: #fed7aa; }
+.yellow { background: #fef9c3; }
 
 /* FOOTER */
 footer {
@@ -126,19 +128,14 @@ footer {
     margin-top: 50px;
 }
 
-/* HIDE */
-.hidden {
-    display: none;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .main-hero {
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .main {
         flex-direction: column;
-        text-align: center;
     }
 
-    .hero-right {
+    .right {
         grid-template-columns: repeat(2, 1fr);
+        margin-top: 30px;
     }
 }

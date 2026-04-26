@@ -3,93 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>PDFBolt - All in One PDF Tools</title>
 
-    <meta name="description" content="Free online PDF tools to merge, compress and convert PDFs. Fast, secure, no signup required.">
-
     <link rel="stylesheet" href="style.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="header">
     <div class="logo-area">
         <img src="logo.png">
-        <div>
-            <h1>PDFBolt ⚡</h1>
-            <p>Fast. Secure. Powerful PDF Tools.</p>
-        </div>
+        <h2>PDFBolt ⚡</h2>
     </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Tools</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <button class="bookmark">🔖 Bookmark</button>
+    </nav>
 </header>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <a href="#">Home</a>
-    <a href="#">Tools</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
-<!-- MAIN HERO -->
-<section class="main-hero">
+<section class="main">
 
     <!-- LEFT -->
-    <div class="hero-left">
+    <div class="left">
         <h1>All-in-One <span>PDF Tools</span></h1>
         <p>Free, fast and easy-to-use tools to manage your PDF files.</p>
 
         <div class="features">
-            <div>🔒 100% Secure</div>
-            <div>⚡ Super Fast</div>
-            <div>☁️ Always Free</div>
+            <div>🔒 Secure</div>
+            <div>⚡ Fast</div>
+            <div>☁️ Free</div>
         </div>
 
-        <button onclick="showMergeTool()">⚡ Explore Tools</button>
+        <button class="cta">⚡ Explore All Tools</button>
     </div>
 
     <!-- RIGHT -->
-    <div class="hero-right">
+    <div class="right">
 
-        <div class="tool-card" onclick="showImageTool()">📷 Image to PDF</div>
-        <div class="tool-card" onclick="showMergeTool()">📄 Merge PDF</div>
-        <div class="tool-card" onclick="showCompressTool()">🗜 Compress PDF</div>
-        <div class="tool-card">✂️ Split PDF</div>
-        <div class="tool-card">📄 PDF → Word</div>
-        <div class="tool-card">📝 Word → PDF</div>
+        <div class="tool">
+            <div class="icon purple">📷</div>
+            <p>Image to PDF</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon blue">📄</div>
+            <p>Merge PDF</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon green">🗜</div>
+            <p>Compress PDF</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon orange">✂️</div>
+            <p>Split PDF</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon blue">📘</div>
+            <p>PDF → Word</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon green">📝</div>
+            <p>Word → PDF</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon yellow">🔄</div>
+            <p>Rotate PDF</p>
+        </div>
+
+        <div class="tool">
+            <div class="icon purple">🔒</div>
+            <p>Protect PDF</p>
+        </div>
 
     </div>
 
 </section>
 
-<!-- TOOL SECTIONS -->
-
-<div id="imageSection" class="tool-box hidden">
-    <h2>Image to PDF</h2>
-    <input type="file" id="imageInput" multiple>
-    <button onclick="convertToPDF()">Convert</button>
-</div>
-
-<div id="mergeSection" class="tool-box hidden">
-    <h2>Merge PDF</h2>
-    <input type="file" id="pdfInput" multiple>
-    <button onclick="mergePDF()">Merge</button>
-</div>
-
-<div id="compressSection" class="tool-box hidden">
-    <h2>Compress PDF</h2>
-    <input type="file" id="compressInput">
-    <button onclick="compressPDF()">Compress</button>
-</div>
-
 <footer>
-    <p>© 2026 PDFBolt</p>
+    © 2026 PDFBolt
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
