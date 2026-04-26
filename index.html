@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fast PDF Tools - Merge, Compress & Convert PDF Online</title>
+    <title>PDFBolt - Merge, Compress & Convert PDF Online</title>
 
     <!-- SEO -->
-    <meta name="description" content="Free online PDF tools to merge, compress and convert PDFs. Fast, secure, no signup required.">
+    <meta name="description" content="PDFBolt - Free online PDF tools to merge, compress and convert PDFs. Fast, secure, no signup required.">
 
     <link rel="stylesheet" href="style.css">
 
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <!-- Google AdSense (ADD YOUR ID LATER) -->
+    <!-- AdSense (ADD AFTER APPROVAL) -->
     <!--
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
      crossorigin="anonymous"></script>
@@ -23,28 +23,54 @@
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <h1>⚡ Fast PDF Tools</h1>
-    <p>Free, Secure & Easy PDF Tools</p>
+<!-- 🔷 HEADER WITH LOGO -->
+<header class="header">
+    <div class="logo-area">
+        <img src="logo.png" alt="PDFBolt Logo">
+        <div>
+            <h1>PDFBolt ⚡</h1>
+            <p>Fast. Secure. Powerful PDF Tools.</p>
+        </div>
+    </div>
 </header>
 
-<!-- TOP AD -->
-<div class="ad-box">
-    <!-- Top AdSense -->
-</div>
+<!-- 🔷 NAVBAR -->
+<nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Tools</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-<!-- TOOL CARDS -->
+<!-- 🔷 HERO SECTION -->
+<section class="hero">
+    <h2>All-in-One PDF Tools</h2>
+    <p>Free, fast and easy-to-use tools to manage your PDF files</p>
+</section>
+
+<!-- 🔝 TOP AD -->
+<div class="ad-box"></div>
+
+<!-- 🔷 TOOL CARDS -->
 <div class="container">
-    <div class="card" onclick="showImageTool()">📷 Image → PDF</div>
-    <div class="card" onclick="showMergeTool()">📄 Merge PDF</div>
-    <div class="card" onclick="showCompressTool()">🗜 Compress PDF</div>
+    <div class="card" onclick="showImageTool()">
+        <h3>📷 Image → PDF</h3>
+        <p>Convert images into PDF instantly</p>
+    </div>
+
+    <div class="card" onclick="showMergeTool()">
+        <h3>📄 Merge PDF</h3>
+        <p>Combine multiple PDFs into one</p>
+    </div>
+
+    <div class="card" onclick="showCompressTool()">
+        <h3>🗜 Compress PDF</h3>
+        <p>Reduce PDF file size quickly</p>
+    </div>
 </div>
 
-<!-- MIDDLE AD -->
-<div class="ad-box">
-    <!-- Middle AdSense -->
-</div>
+<!-- 🔽 MIDDLE AD -->
+<div class="ad-box"></div>
 
 <!-- ================= IMAGE TOOL ================= -->
 <div id="imageSection" class="tool-box hidden">
@@ -83,14 +109,12 @@
     <button onclick="compressPDF()">Compress & Download</button>
 </div>
 
-<!-- BOTTOM AD -->
-<div class="ad-box">
-    <!-- Bottom AdSense -->
-</div>
+<!-- 🔽 BOTTOM AD -->
+<div class="ad-box"></div>
 
-<!-- FOOTER -->
+<!-- 🔷 FOOTER -->
 <footer>
-    <p>© 2026 Fast PDF Tools</p>
+    <p>© 2026 PDFBolt</p>
 
     <div>
         <a href="about.html">About</a> |
