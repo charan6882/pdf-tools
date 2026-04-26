@@ -4,29 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PDFBolt - Merge, Compress & Convert PDF Online</title>
+    <title>PDFBolt - All in One PDF Tools</title>
 
-    <!-- SEO -->
-    <meta name="description" content="PDFBolt - Free online PDF tools to merge, compress and convert PDFs. Fast, secure, no signup required.">
+    <meta name="description" content="Free online PDF tools to merge, compress and convert PDFs. Fast, secure, no signup required.">
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-    <!-- AdSense (ADD AFTER APPROVAL) -->
-    <!--
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
-     crossorigin="anonymous"></script>
-    -->
 </head>
 
 <body>
 
-<!-- 🔷 HEADER WITH LOGO -->
+<!-- HEADER -->
 <header class="header">
     <div class="logo-area">
-        <img src="logo.png" alt="PDFBolt Logo">
+        <img src="logo.png">
         <div>
             <h1>PDFBolt ⚡</h1>
             <p>Fast. Secure. Powerful PDF Tools.</p>
@@ -34,7 +26,7 @@
     </div>
 </header>
 
-<!-- 🔷 NAVBAR -->
+<!-- NAVBAR -->
 <nav class="navbar">
     <a href="#">Home</a>
     <a href="#">Tools</a>
@@ -42,88 +34,61 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<!-- 🔷 HERO SECTION -->
-<section class="hero">
-    <h2>All-in-One PDF Tools</h2>
-    <p>Free, fast and easy-to-use tools to manage your PDF files</p>
+<!-- MAIN HERO -->
+<section class="main-hero">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+        <h1>All-in-One <span>PDF Tools</span></h1>
+        <p>Free, fast and easy-to-use tools to manage your PDF files.</p>
+
+        <div class="features">
+            <div>🔒 100% Secure</div>
+            <div>⚡ Super Fast</div>
+            <div>☁️ Always Free</div>
+        </div>
+
+        <button onclick="showMergeTool()">⚡ Explore Tools</button>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+
+        <div class="tool-card" onclick="showImageTool()">📷 Image to PDF</div>
+        <div class="tool-card" onclick="showMergeTool()">📄 Merge PDF</div>
+        <div class="tool-card" onclick="showCompressTool()">🗜 Compress PDF</div>
+        <div class="tool-card">✂️ Split PDF</div>
+        <div class="tool-card">📄 PDF → Word</div>
+        <div class="tool-card">📝 Word → PDF</div>
+
+    </div>
+
 </section>
 
-<!-- 🔝 TOP AD -->
-<div class="ad-box"></div>
+<!-- TOOL SECTIONS -->
 
-<!-- 🔷 TOOL CARDS -->
-<div class="container">
-    <div class="card" onclick="showImageTool()">
-        <h3>📷 Image → PDF</h3>
-        <p>Convert images into PDF instantly</p>
-    </div>
-
-    <div class="card" onclick="showMergeTool()">
-        <h3>📄 Merge PDF</h3>
-        <p>Combine multiple PDFs into one</p>
-    </div>
-
-    <div class="card" onclick="showCompressTool()">
-        <h3>🗜 Compress PDF</h3>
-        <p>Reduce PDF file size quickly</p>
-    </div>
-</div>
-
-<!-- 🔽 MIDDLE AD -->
-<div class="ad-box"></div>
-
-<!-- ================= IMAGE TOOL ================= -->
 <div id="imageSection" class="tool-box hidden">
     <h2>Image to PDF</h2>
-
-    <div id="dropArea">
-        <p>Drag & Drop Images Here</p>
-        <span>or</span><br><br>
-        <input type="file" id="imageInput" multiple accept="image/*">
-    </div>
-
-    <div id="preview"></div>
-
-    <button onclick="convertToPDF()">Convert to PDF</button>
+    <input type="file" id="imageInput" multiple>
+    <button onclick="convertToPDF()">Convert</button>
 </div>
 
-<!-- ================= MERGE TOOL ================= -->
 <div id="mergeSection" class="tool-box hidden">
-    <h2>Merge PDF Files</h2>
-
-    <p>Select multiple PDF files to merge into one</p>
-
-    <input type="file" id="pdfInput" multiple accept="application/pdf">
-
-    <button onclick="mergePDF()">Merge & Download</button>
+    <h2>Merge PDF</h2>
+    <input type="file" id="pdfInput" multiple>
+    <button onclick="mergePDF()">Merge</button>
 </div>
 
-<!-- ================= COMPRESS TOOL ================= -->
 <div id="compressSection" class="tool-box hidden">
     <h2>Compress PDF</h2>
-
-    <p>Reduce PDF file size quickly</p>
-
-    <input type="file" id="compressInput" accept="application/pdf">
-
-    <button onclick="compressPDF()">Compress & Download</button>
+    <input type="file" id="compressInput">
+    <button onclick="compressPDF()">Compress</button>
 </div>
 
-<!-- 🔽 BOTTOM AD -->
-<div class="ad-box"></div>
-
-<!-- 🔷 FOOTER -->
 <footer>
     <p>© 2026 PDFBolt</p>
-
-    <div>
-        <a href="about.html">About</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="contact.html">Contact</a>
-    </div>
 </footer>
 
-<!-- SCRIPT -->
 <script src="script.js"></script>
 
 </body>
